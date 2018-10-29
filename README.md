@@ -1,6 +1,6 @@
 ## tensorflow c++ inference detection tasks ##
 
-###introduction ### 
+###introduction 
 tensorflow c++ load pb model,inference various tasks,include:
   
 1. mtcnn face detection  
