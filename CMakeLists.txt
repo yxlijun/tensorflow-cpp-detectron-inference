@@ -1,3 +1,4 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 add_subdirectory(mtcnn)
 add_subdirectory(hand_detection)
+add_subdirectory(yolov1)

@@ -1,7 +1,6 @@
 #ifndef DETECTOR_HPP_
 #define DETECTOR_HPP_
 
-#include "tensorflow/core/platform/logging.h"
 #include "tensorflow/core/platform/types.h"
 #include "tensorflow/core/framework/tensor.h"
 #include "tensorflow/core/public/session.h"
