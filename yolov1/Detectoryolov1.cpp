@@ -24,17 +24,28 @@ Config::Config() {
 Detectoryolov1::Detectoryolov1(const string &model_path, float thresh): Detector(model_path),
 	_thresh(thresh) {
 	session = initializer(model_path);
-	std::ifstream in("../yolov1/classes.txt");
-	assert(in.is_open());
-	int line = 0;
-	while (!in.eof()) {
-		string _c;
-		getline(in, _c);
-		if (!_c.empty()) {
-			_config.VOC_CLASSES.insert(std::make_pair(line, trim(_c)));
-			line++;
-		}
-	}
+	_voc_classes = {
+		"aeroplane",
+		"bicycle",
+		"bird",
+		"boat",
+		"bottle",
+		"bus",
+		"car",
+		"cat",
+		"chair",
+		"cow",
+		"diningtable",
+		"dog",
+		"horse",
+		"motorbike",
+		"person",
+		"pottedplant",
+		"sheep",
+		"sofa",
+		"train",
+		"tvmonitor"
+	};
 }
 
 Detectoryolov1::~Detectoryolov1() {
@@ -174,7 +185,7 @@ void Detectoryolov1::draw_bbox_image() {
 		char score[20];
 		sprintf(score, "%.2f", _info.score);
 		string st = score;
-		st = _config.VOC_CLASSES[_info.classes] + st;
+		st = _voc_classes[_info.classes] + st;
 		cv::Point p3(_info.bbox.x, _info.bbox.y - 5);
 		cv::putText(image, st, p3, cv::FONT_HERSHEY_COMPLEX, 0.5, cv::Scalar(255, 255, 0));
 	}

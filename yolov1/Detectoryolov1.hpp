@@ -16,7 +16,6 @@ struct Config {
 	Config();
 	int width, height;
 	float mean_r, mean_g, mean_b;
-	std::map<int, string> VOC_CLASSES;
 };
 
 
@@ -40,6 +39,7 @@ private:
 	Config _config;
 	float _thresh;
 
+	vector<string> _voc_classes;
 	vector<OjbectInfo> _objectinfo;
 };
 #endif
