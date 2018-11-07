@@ -9,4 +9,6 @@ vector<int> nms(vector<cv::Rect> & proposal, vector<float> scores, const float t
 
 string& trim(string &str);
 
+
+vector<int> argsort(vector<float> scores);
 #endif

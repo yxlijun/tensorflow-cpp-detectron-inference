@@ -13,7 +13,7 @@ float iou(const cv::Rect& r1, const cv::Rect &r2) {
 	return (ratio >= 0) ? ratio : 0;
 }
 
-static vector<int> argsort(vector<float> scores) {
+vector<int> argsort(vector<float> scores) {
 	vector<float> _scores = scores;
 	std::sort(scores.begin(), scores.end(), std::greater<float>());
 	int _size = scores.size();
