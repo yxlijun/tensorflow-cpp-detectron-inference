@@ -1,4 +1,5 @@
 #include "DetectorHand.hpp"
+#include "Timer.hpp"
 
 int main(int argc, char *argv[]) {
 	string model_path;
@@ -11,7 +12,11 @@ int main(int argc, char *argv[]) {
 		image_path =  "../data/hand.jpg";
 	}
 	DetectorHand detector(model_path);
+	Timer timer;
+	timer.Tic();
 	detector.detect(image_path);
+	timer.Toc();
+	std::cout << "cost time:" << timer.Elasped() << "ms" << std::endl;
 	detector.draw_bbox_image();
 
 	return 0;
